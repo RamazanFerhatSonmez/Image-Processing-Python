@@ -5,7 +5,6 @@ Basic-Python-RESTful-Server
 ===========================
 
 A basic python RESTful Server in Flask integrated with Luminoso Python Client.
-Data withdrawals were carried out in phyt and python
 
 ## Problem to solve
 
