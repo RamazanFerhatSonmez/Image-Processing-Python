@@ -1,5 +1,6 @@
- https://user-images.githubusercontent.com/32498472/74738094-3f941580-5267-11ea-9c57-5d660a2a78ad.jpg
+ 
 # Image-Processing-Python
+![1_QY5S4senfFh-mIViSi5A_Q](https://user-images.githubusercontent.com/32498472/74738094-3f941580-5267-11ea-9c57-5d660a2a78ad.jpg)
 Image-Processing Example,Basic-Python-RESTful-Server
 
 Basic-Python-RESTful-Server
@@ -21,4 +22,5 @@ We decide to create a basic python RESTful server and include the Luminoso Pytho
 2. Luminoso python client - https://github.com/LuminosoInsight/luminoso-api-client-python
 
 # App Screen
-https://user-images.githubusercontent.com/32498472/74737915-e4fab980-5266-11ea-9a46-edc314d97e2a.png
+
+![1_QY5S4senfFh-mIViSi5A_Q](https://user-images.githubusercontent.com/32498472/74737915-e4fab980-5266-11ea-9a46-edc314d97e2a.png)
