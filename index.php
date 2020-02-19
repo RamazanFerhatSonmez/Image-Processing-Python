@@ -159,8 +159,8 @@
 			max-height: 350px;
 			max-width: 420px;
 			margin: auto;
-			padding: 20px;
-			margin-left: -170px;
+			padding: 27px;
+			margin-left: -320px;
 		}
 
 		.remove-image {
@@ -198,8 +198,8 @@
 		.imageprocessing{
 			margin: 0;
 			padding: 0;
-			width: 100%;
-			height: 100%;
+			width: 417px;
+			height: 260px;
 			outline: none;
 			cursor: pointer;
 		}
@@ -212,6 +212,13 @@
 			margin-bottom: -15px;
 			float: left;
 		}
+		.newimage{
+			display: block !important;
+			margin-top: -30px;
+			color: #1c3553;
+			margin-bottom: -26px;
+			float: left;
+		}
 	</style>
 </head>
 <body>
@@ -219,12 +226,12 @@
         <button id="btnPost" type="submit" style="background-color:#1895FF;font-weight: bold;color:white;">Resmi Gönder</button>
     </form> -->
     <div class="container">
-    	<form action="http://127.0.0.1:5000/image_process" method="GET">
+    	<form action="" method="GET">
     		<div class="row">
     			<div class="col-md-3 port_folio-filter">
     				<h2 style="color:#1C3553;">İşleme Türü</h2>
     				<ul style=" margin-top: 15px;">
-    					<li class="listyle active">
+    					<li class="listyle">
     						<label for="Convolution"> </label>
     						<input type="radio" name="imageprocess" id="Convolution" value="convol" style="display: none !important">
     						Convolution
@@ -303,6 +310,7 @@
     								<button  id="btnPost" type="submit"  style="background-color:#1895FF;font-weight: bold;color:white;margin-left: 260px; " class="file-upload-btn">Gönder</button>
 
     							</div>
+    							<h3 style="display: none;" class="newimage" id="newimage"></h3>
     							<div class="drag-text">
     								<!--     								<h3 style="display: none;" class="originimage" id="originimage"> Orginal Image</h3> -->
     								<img class="imageprocessing" src="noimage.png">
@@ -321,16 +329,18 @@
 src="https://code.jquery.com/jquery-2.2.4.js"
 integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
 crossorigin="anonymous"></script>
+<?php 
+
+
+?>
 <script type="text/javascript">
 
 	$(document).ready(function () {
 		$('#btnPost').on('click', function (event) {
 			event.preventDefault();
-			debugger
 			var values = document.getElementsByName("imageprocess");
 			var values_src = document.getElementsByName("img");
 			var selectedValue = "";
-			debugger
 			for(var i = 0; i < values.length; i++) {
 				if(values[i].checked == true) {
 					selectedValue = values[i].value;
@@ -340,30 +350,20 @@ crossorigin="anonymous"></script>
 			var settings = {
 				"async": true,
 				"crossDomain": true,
-				"url": "http://127.0.0.1:5000/image_process?img_path=C:/Users/Ferhat/Desktop/kimlikon.jpg&img_type="+selectedValue,
+				"url": "http://127.0.0.1:5000/image_process?img_path=C:/xampp/htdocs/python/new_2.png&img_type="+selectedValue,
 				"method": "GET",
 				"headers": {
 					"cache-control": "no-cache",
-					"postman-token": "9436ca34-b550-bc8d-5c41-ac3a73bdd80a"
 				}
 			}
 
 			$.ajax(settings).done(function (response) {
 				debugger
+				$('.imageprocessing').attr('src',response.imgNew)
+				$('#newimage').addClass('newimage');
+				$('#newimage').html(response.desc);
 				console.log(response);
 			});
-			debugger
-			// url: 'http://127.0.0.1:5000/image_process?img_path='+values_src[0].src+'&img_type='+selectedValue,
-			// $.ajax({
-			// 	url: 'http://127.0.0.1:5000/image_process?img_path=C:/Users/Ferhat/Desktop/kimlikon.jpg&img_type='+selectedValue,
-			// 	type: 'GET',
-			// 	success: function (gelenveri) {
-			// 		debugger
-			// 	},
-			// 	error: function (hata) {
-
-			// 	}
-			// });
 		});
 		$filters2 = $('.port_folio-filter ul li');
 		$filters2.on('click', function(){
